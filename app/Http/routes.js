@@ -13,3 +13,6 @@ Route.get('authenticated/instagram', 'ApisController.handle_instagram')
 
 Route.get('twitter/login', 'ApisController.redirect_twitter')
 Route.get('authenticated/twitter', 'ApisController.handle_twitter')
+
+Route.get('github/login', 'ApisController.redirect_github')
+Route.get('authenticated/github', 'ApisController.handle_github')

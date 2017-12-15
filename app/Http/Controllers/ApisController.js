@@ -31,6 +31,10 @@ class ApisController {
 		yield request.ally.driver('facebook').redirect()
 	}
 
+	* redirect_github (request, response) {
+		yield request.ally.driver('github').redirect()
+	}
+
 	// API Callbacks
 	* handle_instagram (request, response) {
 		const user = yield request.ally.driver('instagram').getUser()
@@ -56,6 +60,17 @@ class ApisController {
 
 	* handle_facebook (request, response) {
 		const user = yield request.ally.driver('facebook').getUser()
+
+		yield request.session.put('username', user.getName())
+		yield request.session.put('avatar', user.getAvatar())
+		yield request.session.put('nickname', user.getNickname())
+		yield request.session.put('email', user.getEmail() ? user.getEmail() : 'No email provided')
+
+		return response.redirect('/profile')
+	}
+
+	* handle_github (request, response) {
+		const user = yield request.ally.driver('github').getUser()
 
 		yield request.session.put('username', user.getName())
 		yield request.session.put('avatar', user.getAvatar())

@@ -1,6 +1,11 @@
 'use strict'
 
 class ApisController {
+	* index (request, response) {
+		return yield response.sendView('home',{
+			'profile':yield request.session.get('avatar')
+		})
+	}
 	* profile (request, response) {
 		if (yield request.session.get('avatar')) {
 			return yield response.sendView('users.view',{

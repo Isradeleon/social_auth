@@ -2,7 +2,7 @@
 
 const Route = use('Route')
 
-Route.on('/').render('welcome')
+Route.get('/', 'ApisController.index')
 Route.get('profile', 'ApisController.profile')
 
 Route.get('facebook/login', 'ApisController.redirect_facebook')

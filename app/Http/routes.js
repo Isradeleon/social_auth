@@ -19,5 +19,5 @@ const Route = use('Route')
 
 Route.on('/').render('welcome')
 
-Route.get('facebook/login', 'FacebookController.redirect')
-Route.get('authenticated/facebook', 'FacebookController.handleCallback')
+Route.get('facebook/login', 'ApisController.redirect_facebook')
+Route.get('authenticated/facebook', 'ApisController.handle_facebook')

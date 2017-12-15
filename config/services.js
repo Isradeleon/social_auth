@@ -41,7 +41,7 @@ module.exports = {
     | console. https://apps.twitter.com
     |
     */
-    facebook: {
+    twitter: {
       clientId: Env.get('TWITTER_CLIENT_ID'),
       clientSecret: Env.get('TWITTER_CLIENT_SECRET'),
       redirectUri: `${Env.get('APP_URL')}/authenticated/twitter`

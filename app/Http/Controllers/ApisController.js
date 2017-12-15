@@ -1,11 +1,11 @@
 'use strict'
 
-class FacebookController {
-	* redirect (request, response) {
+class ApisController {
+	* redirect_facebook (request, response) {
 		yield request.ally.driver('facebook').scope(['public_profile', 'email', 'user_friends']).redirect()
 	}
 
-	* handleCallback (request, response) {
+	* handle_facebook (request, response) {
 		 const fbUser = yield request.ally.driver('facebook').getUser()
 		return response.send('llega')
 
@@ -28,4 +28,4 @@ class FacebookController {
 	}
 }
 
-module.exports = FacebookController
+module.exports = ApisController

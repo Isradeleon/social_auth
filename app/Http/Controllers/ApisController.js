@@ -19,8 +19,8 @@ class ApisController {
 	// API Callbacks
 	* handle_instagram (request, response) {
 		const user = yield request.ally.driver('instagram').getUser()
-		
-		return yield sendView('users.view',{
+
+		return yield response.sendView('users.view',{
 			email: user.getEmail(),
 			avatar: user.getAvatar(),
 			username: user.getName(),
@@ -30,8 +30,8 @@ class ApisController {
 
 	* handle_twitter (request, response) {
 		const user = yield request.ally.driver('twitter').getUser()
-		
-		return yield sendView('users.view',{
+
+		return yield response.sendView('users.view',{
 			email: user.getEmail(),
 			avatar: user.getAvatar(),
 			username: user.getName(),
@@ -41,8 +41,8 @@ class ApisController {
 
 	* handle_facebook (request, response) {
 		const user = yield request.ally.driver('facebook').getUser()
-		
-		return yield sendView('users.view',{
+
+		return yield response.sendView('users.view',{
 			email: user.getEmail(),
 			avatar: user.getAvatar(),
 			username: user.getName(),

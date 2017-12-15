@@ -1,0 +1,44 @@
+{% extends 'master' %}
+
+{% block content %}
+	<section class="main">
+		<section class="container">
+			<div class="columns">
+				<div class="column is-one-third">
+					<img style="width: auto; max-height: 120px;" src="{{avatar}}">
+				</div>
+
+				<div class="column">
+					<table class="table">
+						<tbody>
+							<tr>
+								<td>
+									<strong>Username</strong>
+								</td>
+								<td>
+									{{username}}
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<strong>Email</strong>
+								</td>
+								<td>
+									{{email}}
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<strong>Nickname</strong>
+								</td>
+								<td>
+									{{nickname}}
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</section>
+	</section>
+{% endblock %}

@@ -1,10 +1,43 @@
 {% extends 'master' %}
 
 {% block content %}
-  <div class="__banner">
-    <div class="banner__inner">
-      <img src="/assets/logo.svg">
-      <h2>Practical <span>Reliable</span> Productive</h2>
-    </div>
-  </div>
+ 	<section class="main">
+ 		<div class="columns">
+ 			<div class="column is-one-third"></div>
+ 			<div class="column is-one-third">
+ 				<nav class="panel">
+				  <p class="panel-heading has-text-centered">
+				  	Social Auth
+				  </p>
+				  <a href="facebook/login" class="panel-block">
+				    <span class="panel-icon">
+				      <i class="fa fa-facebook"></i>
+				    </span>
+				    Facebook
+				  </a>
+
+				  <a href="instagram/login" class="panel-block">
+				    <span class="panel-icon">
+				      <i class="fa fa-instagram"></i>
+				    </span>
+				    Instagram
+				  </a>
+
+				  <a href="twitter/login" class="panel-block">
+				    <span class="panel-icon">
+				      <i class="fa fa-twitter"></i>
+				    </span>
+				    Twitter
+				  </a>
+
+				  <div class="panel-block">
+				    <button class="button is-link is-outlined is-fullwidth">
+				      reset all filters
+				    </button>
+				  </div>
+				</nav>
+ 			</div>
+ 			<div class="column is-one-third"></div>
+ 		</div>
+ 	</section>
 {% endblock %}

@@ -1,23 +1,14 @@
 'use strict'
 
-/*
-|--------------------------------------------------------------------------
-| Router
-|--------------------------------------------------------------------------
-|
-| AdonisJs Router helps you in defining urls and their actions. It supports
-| all major HTTP conventions to keep your routes file descriptive and
-| clean.
-|
-| @example
-| Route.get('/user', 'UserController.index')
-| Route.post('/user', 'UserController.store')
-| Route.resource('user', 'UserController')
-*/
-
 const Route = use('Route')
 
 Route.on('/').render('welcome')
 
 Route.get('facebook/login', 'ApisController.redirect_facebook')
 Route.get('authenticated/facebook', 'ApisController.handle_facebook')
+
+Route.get('instagram/login', 'ApisController.redirect_instagram')
+Route.get('authenticated/instagram', 'ApisController.handle_instagram')
+
+Route.get('twitter/login', 'ApisController.redirect_twitter')
+Route.get('authenticated/twitter', 'ApisController.handle_twitter')

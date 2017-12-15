@@ -16,3 +16,6 @@ Route.get('authenticated/twitter', 'ApisController.handle_twitter')
 
 Route.get('github/login', 'ApisController.redirect_github')
 Route.get('authenticated/github', 'ApisController.handle_github')
+
+Route.get('google/login', 'ApisController.redirect_google')
+Route.get('authenticated/google', 'ApisController.handle_google')

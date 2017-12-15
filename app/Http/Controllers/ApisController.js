@@ -6,6 +6,7 @@ class ApisController {
 			'profile':yield request.session.get('avatar')
 		})
 	}
+
 	* profile (request, response) {
 		if (yield request.session.get('avatar')) {
 			return yield response.sendView('users.view',{
@@ -21,6 +22,10 @@ class ApisController {
 	// API redirect methods
 	* redirect_instagram (request, response) {
 		yield request.ally.driver('instagram').redirect()
+	}
+
+	* redirect_google (request, response) {
+		yield request.ally.driver('google').redirect()
 	}
 
 	* redirect_twitter (request, response) {
@@ -39,6 +44,17 @@ class ApisController {
 	* handle_instagram (request, response) {
 		const user = yield request.ally.driver('instagram').getUser()
 
+		yield request.session.put('username', user.getName())
+		yield request.session.put('avatar', user.getAvatar())
+		yield request.session.put('nickname', user.getNickname())
+		yield request.session.put('email', user.getEmail() ? user.getEmail() : 'No email provided')
+
+		return response.redirect('/profile')
+	}
+
+	* handle_google (request, response) {
+		const user = yield request.ally.driver('google').getUser()
+		return response.json(user)
 		yield request.session.put('username', user.getName())
 		yield request.session.put('avatar', user.getAvatar())
 		yield request.session.put('nickname', user.getNickname())

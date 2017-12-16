@@ -21,7 +21,7 @@ class ApisController {
 
 	// API redirect methods
 	* redirect_instagram (request, response) {
-		yield request.ally.driver('instagram').redirect()
+		yield request.ally.driver('instagram').scope(['basic']).redirect()
 	}
 
 	* redirect_google (request, response) {
@@ -37,7 +37,7 @@ class ApisController {
 	}
 
 	* redirect_github (request, response) {
-		yield request.ally.driver('github').redirect()
+		yield request.ally.driver('github').scope(['user']).redirect()
 	}
 
 	// API Callbacks
@@ -54,18 +54,18 @@ class ApisController {
 
 	* handle_google (request, response) {
 		const user = yield request.ally.driver('google').getUser()
-		return response.json(user)
+
 		yield request.session.put('username', user.getName())
 		yield request.session.put('avatar', user.getAvatar())
 		yield request.session.put('nickname', user.getNickname())
 		yield request.session.put('email', user.getEmail() ? user.getEmail() : 'No email provided')
 
-		return response.redirect('/profile')
+		return response.redirect(	'/profile')
 	}
 
 	* handle_twitter (request, response) {
 		const user = yield request.ally.driver('twitter').getUser()
-
+		
 		yield request.session.put('username', user.getName())
 		yield request.session.put('avatar', user.getAvatar())
 		yield request.session.put('nickname', user.getNickname())
@@ -91,7 +91,7 @@ class ApisController {
 		yield request.session.put('username', user.getName())
 		yield request.session.put('avatar', user.getAvatar())
 		yield request.session.put('nickname', user.getNickname())
-		yield request.session.put('email', user.getEmail() ? user.getEmail() : 'No email provided')
+		yield request.session.put('email', user.getOriginal().email)
 
 		return response.redirect('/profile')
 	}
